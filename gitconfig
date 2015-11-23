@@ -7,8 +7,6 @@
     hist = log --date=iso --pretty=format:\"[%ad] %h %an : %s\"
 [core]
 	excludesfile = ~/.gitignore
-#[push]
-#	default = simple
 [pager]
 	log = (command -v diff-highlight > /dev/null && diff-highlight | less) || less
 	show = (command -v diff-highlight > /dev/null && diff-highlight | less) || less

@@ -108,7 +108,12 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 
   " Recommended to install
   " After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
-  NeoBundle 'Shougo/vimproc'
+  NeoBundle 'Shougo/vimproc', {
+        \ 'build' : {
+        \     'mac' : 'make -f make_mac.mak',
+        \     'unix' : 'make -f make_unix.mak',
+        \    },
+        \ }
 
   NeoBundleLazy "c9s/perlomni.vim", {"autoload": {"filetypes": ['perl']}}
   NeoBundleLazy "vim-perl/vim-perl", {"autoload": {"filetypes": ['perl']}}
@@ -116,8 +121,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundleLazy 'suan/vim-instant-markdown', {"autoload": {"filetypes": ['markdown']}} " Instant Markdown previews from VIm!
   NeoBundleLazy 'Blackrush/vim-gocode', {"autoload": {"filetypes": ['go']}} " A Go bundle for Vundle or Pathogen
   NeoBundleLazy "elixir-lang/vim-elixir", {"autoload": {"filetypes": ['elixir', 'eelixir']}}
-  NeoBundle "editorconfig/editorconfig-vim"
-  NeoBundle "scrooloose/syntastic"
+  NeoBundleLazy "scrooloose/syntastic", {"autoload": {"filetypes": ['python', 'python3', 'css', 'rst']}}
   NeoBundleLazy "pangloss/vim-javascript", {"autoload": {"filetypes": ['javascript']}}
   NeoBundleLazy 'davidhalter/jedi-vim', {"autoload": {"filetypes": ['python']}, 'build':{'mac': 'git submodule update --init'}}
   NeoBundleLazy 'jmcantrell/vim-virtualenv', {"autoload": {"filetypes": ['python', "python3", "djangohtml"]}}
@@ -188,7 +192,9 @@ function! s:bundle.hooks.on_source(bundle)
       \'proprietary attribute "pdk-'
       \]
   let g:syntastic_javascript_checkers = ['eslint']
+  let g:syntastic_rst_checkers = ['sphinx']
 endfunction
+
 
 "if ! empty(neobundle#get("vim-indent-guides"))
 "  let g:indent_guides_enable_on_vim_startup = 1
