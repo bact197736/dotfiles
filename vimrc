@@ -127,6 +127,8 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundleLazy 'jmcantrell/vim-virtualenv', {"autoload": {"filetypes": ['python', "python3", "djangohtml"]}}
   NeoBundleLazy "lambdalisue/vim-django-support", {"autoload": {"filetypes": ["python", "python3", "djangohtml"]}}
   NeoBundleLazy 'elzr/vim-json', {"autoload": {"filetypes": ['json']}}
+  " http://hagino3000.blogspot.jp/2014/01/vim-python-pep8-indent.html#Message-complete
+  NeoBundleLazy "hynek/vim-python-pep8-indent", {"autoload": {"filetypes": ["python", "python3", "djangohtml"]}}
 
 call neobundle#end()
 
@@ -158,6 +160,7 @@ autocmd BufNewFile,BufRead *.py set ft=python
 let s:bundle = neobundle#get("jedi-vim")
 function! s:bundle.hooks.on_source(bundle)
   let g:jedi#popup_select_first = 0
+  let g:jedi#show_call_signatures = 0
   set tabstop=4
   set shiftwidth=4
   setlocal completeopt-=preview
@@ -193,6 +196,7 @@ function! s:bundle.hooks.on_source(bundle)
       \]
   let g:syntastic_javascript_checkers = ['eslint']
   let g:syntastic_rst_checkers = ['sphinx']
+  let g:syntastic_python_checkers = ['flake8']
 endfunction
 
 
@@ -214,3 +218,7 @@ autocmd BufNewFile *.pl 0r ~/.vim/template/perl.txt
 
 " HTML
 autocmd BufNewFile *.html 0r ~/.vim/template/bootstrap.html
+
+if !empty(glob("~/.vimrc_ext"))
+  source ~/.vimrc_ext
+endif
