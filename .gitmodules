@@ -1,27 +1,3 @@
-[submodule ".extra/gdbinit"]
-	path = .extra/gdbinit
-	url = https://github.com/gdbinit/Gdbinit.git
-[submodule ".vim/bundle/Vundle.vim"]
-	path = .vim/bundle/Vundle.vim
-    url = https://github.com/gmarik/Vundle.vim.git
-[submodule ".oh-my-zsh"]
-	path = .oh-my-zsh
-	url = https://github.com/robbyrussell/oh-my-zsh.git
-[submodule ".extra/ls_colors"]
-	path = .extra/ls_colors
-	url = https://github.com/trapd00r/LS_COLORS.git
-[submodule ".extra/zsh_custom/plugins/zsh-syntax-highlighting-filetypes"]
-	path = .extra/zsh_custom/plugins/zsh-syntax-highlighting-filetypes
-	url = https://github.com/trapd00r/zsh-syntax-highlighting-filetypes.git
-[submodule ".extra/ssh-ident"]
-	path = .extra/ssh-ident
-	url = https://github.com/ccontavalli/ssh-ident.git
-[submodule ".extra/zsh_custom/plugins/git-extra-commands"]
-	path = .extra/zsh_custom/plugins/git-extra-commands
-	url = https://github.com/unixorn/git-extra-commands.git
-[submodule ".extra/.nano"]
-	path = .extra/.nano
-	url = https://github.com/scopatz/nanorc.git
-[submodule ".extra/aurtab"]
-	path = .extra/aurtab
-	url = https://github.com/worzel666/aurtab.git
+[submodule "vim/bundle/neobundle.vim"]
+	path = vim/bundle/neobundle.vim
+	url = https://github.com/Shougo/neobundle.vim
